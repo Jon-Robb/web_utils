@@ -11,7 +11,7 @@ function App() {
     ctx.fill()
   }
   
-  return <Canvas draw={draw} />
+  return <Canvas draw={draw}/>
 }
 
 export default App
