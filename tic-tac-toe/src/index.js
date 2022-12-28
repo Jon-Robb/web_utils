@@ -76,6 +76,7 @@ function Square (props) {
       });
     }
 
+    
     jumpTo(step) {
       this.setState({
         stepNumber: step,
