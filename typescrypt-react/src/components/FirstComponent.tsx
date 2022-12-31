@@ -1,5 +1,5 @@
 import * as React from 'react';
-let img = "./img/apple.png";
+let img = "../img/apple.png";
 export default class FirstComponent extends React.Component {
     render() {
         return (
