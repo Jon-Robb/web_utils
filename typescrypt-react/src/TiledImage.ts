@@ -208,7 +208,7 @@ export default class TiledImage {
 	}
 
 	getActualWidth () {
-		if (this.actualWidth == null || this.actualWidth == 0) {
+		if (this.actualWidth === null || this.actualWidth === 0) {
 			this.updateDimensions();
 		}
 
@@ -216,7 +216,7 @@ export default class TiledImage {
 	}
 
 	getActualHeight () {
-		if (this.actualHeight == null || this.actualHeight == 0) {
+		if (this.actualHeight === null || this.actualHeight === 0) {
 			this.updateDimensions();
 		}
 
@@ -276,7 +276,7 @@ export default class TiledImage {
 				let x = Math.floor(spritePosX - actualW/2);
 				let y = Math.floor(spritePosY - actualH/2);
 
-				if (this.flipped || this.angle != 0 || this.opacity != 1) {
+				if (this.flipped || this.angle !== 0 || this.opacity !== 1) {
 					ctx.save();
 				}
 
@@ -288,7 +288,7 @@ export default class TiledImage {
 					y = 0;
 				}
 
-				if (this.angle != 0) {
+				if (this.angle !== 0) {
 					ctx.translate(Math.floor(spritePosX),
 								Math.floor(spritePosY));
 					ctx.rotate((this.flipped ? -1 : 1) * this.angle * Math.PI/ 180);
@@ -297,7 +297,7 @@ export default class TiledImage {
 					y = -actualH/2;
 				}
 
-				if (this.opacity != 1) ctx.globalAlpha   = this.opacity;
+				if (this.opacity !== 1) ctx.globalAlpha = this.opacity;
 
 				ctx.drawImage(this.imageList[i],
 							this.imageList[i].width/this.imageTileColCount * this.imageCurrentCol,
@@ -309,19 +309,19 @@ export default class TiledImage {
 							actualW,
 							actualH);
 
-				if (this.flipped || this.angle != 0 || this.opacity != 1) {
+				if (this.flipped || this.angle !== 0 || this.opacity !== 1) {
 					ctx.restore();
 				}
 
 			}
 		}
 
-		if (this.tickDrawFrameInterval == 0) {
+		if (this.tickDrawFrameInterval === 0) {
 			if (this.horizontal) {
-				if (this.fullImageCount != null) {
+				if (this.fullImageCount !== null) {
 					this.fullImageIdx += 1;
 
-					if (this.fullImageIdx == this.fullImageCount) {
+					if (this.fullImageIdx === this.fullImageCount) {
 						this.fullImageIdx = 0;
 						this.imageCurrentCol = -1;
 						this.imageCurrentRow = 0;
@@ -338,9 +338,9 @@ export default class TiledImage {
 					}
 				}
 
-				if ((this.fullImageCount == null && this.imageCurrentCol + 1 >= this.imageAnimationMax) ||
-					(this.fullImageCount != null && this.imageCurrentCol + 1 >= this.imageTileColCount)) {
-					if (this.doneEvent != undefined) {
+				if ((this.fullImageCount === null && this.imageCurrentCol + 1 >= this.imageAnimationMax) ||
+					(this.fullImageCount !== null && this.imageCurrentCol + 1 >= this.imageTileColCount)) {
+					if (this.doneEvent !== undefined) {
 						let doneEvent = this.doneEvent;
 						this.doneEvent = undefined;
 						doneEvent();
@@ -357,7 +357,7 @@ export default class TiledImage {
 				if (this.fullImageCount != null) {
 					this.fullImageIdx += 1;
 
-					if (this.fullImageIdx == this.fullImageCount) {
+					if (this.fullImageIdx === this.fullImageCount) {
 						this.fullImageIdx = 0;
 						this.imageCurrentCol = 0;
 						this.imageCurrentRow = -1;
@@ -376,7 +376,7 @@ export default class TiledImage {
 
 				if ((this.fullImageCount == null && this.imageCurrentRow + 1 >= this.imageAnimationMax) ||
 					(this.fullImageCount != null && this.imageCurrentRow + 1 >= this.imageTileRowCount)){
-					if (this.doneEvent != undefined) {
+					if (this.doneEvent !== undefined) {
 						let doneEvent = this.doneEvent;
 						this.doneEvent = undefined;
 						doneEvent();
