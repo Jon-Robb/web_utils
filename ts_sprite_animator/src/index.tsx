@@ -3,18 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import FirstComponent from './components/FirstComponent';
-import UserComponent from './components/UserComponent';
-import CanvasComponent from './components/CanvasComponent';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <FirstComponent />
-    <UserComponent name="Jon" age={34} address="123 Main St" dob={new Date(1990, 1, 1)} />
-    <CanvasComponent />
+    <App />
   </React.StrictMode>
 );
 
