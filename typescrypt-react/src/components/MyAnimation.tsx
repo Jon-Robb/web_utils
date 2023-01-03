@@ -1,5 +1,6 @@
 import TiledImage from '../TiledImage';
 import * as React from 'react';
+import reportWebVitals from '../reportWebVitals';
 // import image from '../img/first_mage.png';
 
 interface Props {
@@ -19,14 +20,16 @@ export default class MyAnimation extends React.Component<Props, State> {
     // Create the TiledImage object
     let columnCount = 2;
     let rowCount = 4;
-    let refreshDelay = 100; 			
+    let refreshDelay = 500; 			
     let loopColumns = true; 			
     let scale = 1.0;
     let image = require('../img/first_mage.png');
-    this.tiledImage = new TiledImage(image, columnCount, rowCount, refreshDelay, loopColumns, scale, undefined);
-    this.tiledImage.changeRow(3);				
+    let row = 3;
+    this.tiledImage = new TiledImage(image, columnCount, rowCount, refreshDelay, loopColumns, scale);
+    this.tiledImage.changeRow(row);			
     this.tiledImage.changeMinMaxInterval(0, 2); 	
     this.tiledImage.setMinMaxDimensions(32, 32, 64, 64);
+
 
     // Start the animation loop
     this.tickCanvas();
@@ -48,8 +51,11 @@ export default class MyAnimation extends React.Component<Props, State> {
         this.tiledImage.tick(100, 100, ctx);
     }
 
+    this.tiledImage?.changeRow(3);
     // Request the next animation frame
     this.animationFrame = requestAnimationFrame(this.tickCanvas);
+    
+    
   }
 
   render() {
