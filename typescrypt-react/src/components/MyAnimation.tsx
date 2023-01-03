@@ -20,7 +20,7 @@ export default class MyAnimation extends React.Component<Props, State> {
     // Create the TiledImage object
     let columnCount = 2;
     let rowCount = 4;
-    let refreshDelay = 500; 			
+    let refreshDelay = 250; 			
     let loopColumns = true; 			
     let scale = 1.0;
     let image = require('../img/first_mage.png');
