@@ -1,6 +1,6 @@
 import TiledImage from '../TiledImage';
 import * as React from 'react';
-import reportWebVitals from '../reportWebVitals';
+import { Sprite } from './Sprite';
 // import image from '../img/first_mage.png';
 
 interface Props {
@@ -32,7 +32,7 @@ export default class MyAnimation extends React.Component<Props, State> {
 
 
     // Start the animation loop
-    this.tickCanvas();
+    // this.tickCanvas();
   }
 
   componentWillUnmount() {
@@ -40,23 +40,22 @@ export default class MyAnimation extends React.Component<Props, State> {
     cancelAnimationFrame(this.animationFrame);
   }
 
-  tickCanvas = () => {
-    // Get the canvas and rendering context
-    let canvas = this.canvasRef.current!;
-    let ctx = canvas.getContext("2d")!;
+  // tickCanvas = () => {
+  //   // Get the canvas and rendering context
+  //   let canvas = this.canvasRef.current!;
+  //   let ctx = canvas.getContext("2d")!;
 
-    // Clear the canvas and draw the next frame of the animation
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    if (this.tiledImage){
-        this.tiledImage.tick(100, 100, ctx);
-    }
+  //   // Clear the canvas and draw the next frame of the animation
+  //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  //   if (this.tiledImage){
+  //       this.tiledImage.tick(100, 100, ctx);
+  //   }
 
-    this.tiledImage?.changeRow(3);
-    // Request the next animation frame
-    this.animationFrame = requestAnimationFrame(this.tickCanvas);
+  //   this.tiledImage?.changeRow(3);
+  //   // Request the next animation frame
+  //   this.animationFrame = requestAnimationFrame(this.tickCanvas);
     
-    
-  }
+  // }
 
   render() {
     return (
